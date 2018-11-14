@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Tennant{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h1>Edit Tennant</h1>
+        <br>
+        <a href="{{ path('tennant_index') }}">back to list</a>
+    {{ include('tennant/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+
+    {{ include('tennant/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

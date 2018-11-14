@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Directory listing{% endblock %}
+
+{% block body %}
+<div class="container">
+    {% for tennant in tennants %}
+    <ul class="table">
+        <li>{{ tennant.name }} : {{ tennant.number }}</li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}

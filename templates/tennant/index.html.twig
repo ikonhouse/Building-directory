@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tennant index{% endblock %}
+
+{% block body %}
+
+
+    <div class="container">
+        <h1>Tennant index</h1>
+        <br>
+        <a href="{{ path('tennant_new') }}">Create new</a>
+        <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Number</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tennant in tennants %}
+            <tr>
+                <td>{{ tennant.id }}</td>
+                <td>{{ tennant.name }}</td>
+                <td>{{ tennant.number }}</td>
+                <td>
+                    <a href="{{ path('tennant_show', {'id': tennant.id}) }}">show</a>
+                    <br>
+                    <a href="{{ path('tennant_edit', {'id': tennant.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+        <br>
+
+        <a href="{{ path('tennant_new') }}">Create new</a>
+    </div>
+{% endblock %}
