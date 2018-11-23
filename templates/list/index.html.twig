@@ -4,6 +4,9 @@
 
 {% block body %}
 <div class="container">
+    <br>
+    <h1>Tenant listing</h1>
+    <br>
     {% for tennant in tennants %}
     <ul class="table">
         <li>{{ tennant.name }} : {{ tennant.number }}</li>
