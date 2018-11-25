@@ -20,7 +20,7 @@ class TennantController extends AbstractController
      */
     public function index(TennantRepository $tennantRepository): Response
     {
-        return $this->render('tennant/index.html.twig', ['tennants' => $tennantRepository->findAll()]);
+        return $this->render('tennant/index.html.twig', ['tennants' => $tennantRepository->findBy([], ['name' => 'ASC'])]);
     }
 
     /**
