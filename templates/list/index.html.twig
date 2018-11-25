@@ -22,23 +22,34 @@
     <div class="container">
         <div  class="row">
 
-
             {% for tennant in tennants %}
 
                     {% if tennant.name|first|upper != testLetter %}
-
-                        {% set testLetter = tennant.name|first|upper %}
                             {% if first != true %}
-                                </ul>
+                                </table>
+
                             {% else %}
                                 {% set first = false %}
                             {% endif %}
-                        <h1><a name="{{ testLetter }}">{{ testLetter }}</a></h1>
-                        <ul class="list-group list-group-flush">
+                        {% set testLetter = tennant.name|first|upper %}
+                        <h1><a class=inactiveLink name="{{ testLetter }}">{{ testLetter }}</a></h1>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th style="text-align: right">Office number</th>
+                            </tr>
+                            </thead>
+
                     {% endif %}
-                <li class="list-group-item">{{ tennant.name }} : {{ tennant.number }}</li>
-            {% endfor %}
-            </ul>
+                <tr>
+                    <td>{{ tennant.name }}</td>
+                    <td style="text-align: right">{{ tennant.number }}</td>
+                </tr>
+
+
+                    {% endfor %}
+            </table>
         </div>
     </div>
 
