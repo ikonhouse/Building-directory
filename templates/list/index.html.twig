@@ -5,6 +5,7 @@
 
 {% block body %}
 {% set testLetter = '' %}
+    {% set first = true %}
 
     <div class="navbar navbar-inverse navbar-fixed-right">
         <a class="navbar-brand" href="#">Search</a>
@@ -19,22 +20,28 @@
 
 
     <div class="container">
-        <div class="row">
+        <div  class="row">
+
 
             {% for tennant in tennants %}
-                <ul class="table">
+
                     {% if tennant.name|first|upper != testLetter %}
 
                         {% set testLetter = tennant.name|first|upper %}
-                        <h1><a name="{{ testLetter }}">{{ testLetter }}</h1>
-
+                            {% if first != true %}
+                                </ul>
+                            {% else %}
+                                {% set first = false %}
+                            {% endif %}
+                        <h1><a name="{{ testLetter }}">{{ testLetter }}</a></h1>
+                        <ul class="list-group list-group-flush">
                     {% endif %}
-                    <li>{{ tennant.name }} : {{ tennant.number }}</li>
-                </ul>
+                <li class="list-group-item">{{ tennant.name }} : {{ tennant.number }}</li>
             {% endfor %}
-
+            </ul>
         </div>
     </div>
+
 
 
 
